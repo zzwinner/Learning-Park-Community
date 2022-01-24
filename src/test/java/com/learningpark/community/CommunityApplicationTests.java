@@ -11,11 +11,7 @@ import org.thymeleaf.context.Context;
 
 
 @SpringBootTest
-class CommunityApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
+public class CommunityApplicationTests{
 
 	@Autowired
 	private UserMapper userMapper;
@@ -53,4 +49,5 @@ class CommunityApplicationTests {
 
 		mailSendUtil.sendMail("zuzhibugongshi17@163.com", "HTML", content);
 	}
+
 }
