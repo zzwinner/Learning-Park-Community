@@ -18,3 +18,4 @@ spring.mail.protocol=smtps--安全发送邮件<br/>
 spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，并安全发送<br/>
 <b>第四步，</b>在项目目录下新建util工具类，并新建发送邮件的工具类<br/>
 <b>第五步，</b>如果需要发送HTML邮件，需要使用thymeleaf模板<br/>
+<h3>3、用户注册功能以及向用户发送激活邮件进行激活操作</h3>
