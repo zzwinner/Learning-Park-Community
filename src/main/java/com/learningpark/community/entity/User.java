@@ -6,7 +6,7 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String salt;//为了防止用户设置密码过于简单，因此在密码后加4位随机数，提高安全性
+    private String salt;//为了防止用户设置密码过于简单，因此在密码后加5位随机数，提高安全性
     private String email;
     private int type;//0是普通用户,1是管理员,2是版主
     private int status;//状态码，0为不在线，1为在线
