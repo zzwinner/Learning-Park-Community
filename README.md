@@ -20,3 +20,4 @@ spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，
 <b>第五步，</b>如果需要发送HTML邮件，需要使用thymeleaf模板<br/>
 <h3>3、用户注册功能以及向用户发送激活邮件进行激活操作</h3>
 <h3>4、通过kaptcha生成随机验证码图片</h3>
+<h3>5、用户登录、退出登录以及根据登录状态显示不同页面内容</h3>

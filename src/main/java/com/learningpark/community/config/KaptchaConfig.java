@@ -1,4 +1,4 @@
-package com.learningpark.community.Config;
+package com.learningpark.community.config;
 
 import com.google.code.kaptcha.Producer;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
