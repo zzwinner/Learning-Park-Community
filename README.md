@@ -27,3 +27,4 @@ spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，
 <h3>9、查看私信列表和私信详情</h3>
 <h3>10、发送私信和点击未读私信后更新为已读状态</h3>
 <h3>11、通过ControllerAdvice统一处理异常以及通过切面统一处理日志</h3>
+<h3>12、通过Redis实现点赞功能</h3>
