@@ -29,3 +29,5 @@ spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，
 <h3>11、通过ControllerAdvice统一处理异常以及通过切面统一处理日志</h3>
 <h3>12、通过Redis实现点赞功能</h3>
 <h3>13、关注和取消关注功能</h3>
+<h3>14、查看用户关注和粉丝列表</h3>
+<h3>15、对验证码、用户登录凭证以及通过凭证访问用户信息功能进行代码改造，将信息存入Redis中</h3>
