@@ -1,8 +1,10 @@
 package com.learningpark.community.controller;
 
 import com.learningpark.community.annotation.LoginRequired;
+import com.learningpark.community.entity.Event;
 import com.learningpark.community.entity.Page;
 import com.learningpark.community.entity.User;
+import com.learningpark.community.event.EventProducer;
 import com.learningpark.community.service.FollowService;
 import com.learningpark.community.service.UserService;
 import com.learningpark.community.util.CommunityConstant;
@@ -31,6 +33,9 @@ public class FollowController implements CommunityConstant {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     @RequestMapping(path = "/follow", method = RequestMethod.POST)
     @ResponseBody
     @LoginRequired
@@ -40,6 +45,16 @@ public class FollowController implements CommunityConstant {
         followService.follow(user.getId(), entityType, entityId);
 
         if (followService.hasFollowed(user.getId(), entityType, entityId)) {
+
+            // 触发关注事件
+            Event event = new Event()
+                    .setTopic(TOPIC_FOLLOW)
+                    .setUserId(hostHolder.getUser().getId())
+                    .setEntityType(entityType)
+                    .setEntityId(entityId)
+                    .setEntityUserId(entityId);
+            eventProducer.fireEvent(event);
+
             return CommunityUtil.getJSONString(0, "已关注！");
         } else return CommunityUtil.getJSONString(0, "已取消关注！");
     }
