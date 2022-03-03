@@ -33,3 +33,4 @@ spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，
 <h3>15、对验证码、用户登录凭证以及通过凭证访问用户信息功能进行代码改造，将信息存入Redis中</h3>
 <h3>16、使用kafka创建系统通知</h3>
 <h3>17、在用户界面显示通知列表和通知详情</h3>
+<h3>18、使用Elasticsearch与kafka配合进行帖子搜索功能的开发</h3>

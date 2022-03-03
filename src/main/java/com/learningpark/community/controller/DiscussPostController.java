@@ -1,10 +1,8 @@
 package com.learningpark.community.controller;
 
 import com.learningpark.community.annotation.LoginRequired;
-import com.learningpark.community.entity.Comment;
-import com.learningpark.community.entity.DiscussPost;
-import com.learningpark.community.entity.Page;
-import com.learningpark.community.entity.User;
+import com.learningpark.community.entity.*;
+import com.learningpark.community.event.EventProducer;
 import com.learningpark.community.service.CommentService;
 import com.learningpark.community.service.DiscussPostService;
 import com.learningpark.community.service.LikeService;
@@ -41,6 +39,9 @@ public class DiscussPostController implements CommunityConstant {
     @Autowired
     private LikeService likeService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     @ResponseBody
     @LoginRequired
@@ -56,6 +57,14 @@ public class DiscussPostController implements CommunityConstant {
         post.setContent(content);
         post.setCreateTime(new Date());
         discussPostService.addDiscussPost(post);
+
+        //触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(user.getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(post.getId());
+        eventProducer.fireEvent(event);
 
         //报错的情况将来统一处理
         return CommunityUtil.getJSONString(0, "发布成功！");
