@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
-
+@Deprecated
 @Component
 public class LoginRequiredInterceptor implements HandlerInterceptor {
 
