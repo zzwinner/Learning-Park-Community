@@ -35,3 +35,4 @@ spring.mail.properties.mail.smtp.ssl.enable=true--使用SSL协议发送邮件，
 <h3>17、在用户界面显示通知列表和通知详情</h3>
 <h3>18、使用Elasticsearch与kafka配合进行帖子搜索功能的开发</h3>
 <h3>19、使用SpringSecurity对用户进行授权，并接管曾经注解判断登录状态的开发逻辑</h3>
+<h3>20、为版主添加置顶和加精功能，管理员添加删除功能</h3>
