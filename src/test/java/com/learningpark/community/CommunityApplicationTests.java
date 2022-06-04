@@ -31,6 +31,8 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -127,15 +129,16 @@ public class CommunityApplicationTests {
     @Test
     public void testInsertList() {
         //把id为101的用户发的前100条帖子（List<DiscussPost>）存入es的discusspost索引（es的索引相当于数据库的表）
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(101, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(102, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(103, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(111, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(112, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(131, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(132, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(133, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(134, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(101, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(102, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(103, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(111, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(112, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(131, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(132, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(133, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(134, 0, 100));
+//        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(150, 0, 100));
     }
 
     //通过覆盖原内容，来修改一条数据
@@ -202,9 +205,9 @@ public class CommunityApplicationTests {
 
     //带高亮的查询
     @Test
-    public void highlightQuery() throws Exception{
+    public void highlightQuery() throws Exception {
         SearchRequest searchRequest = new SearchRequest("discusspost");//discusspost是索引名，就是表名
-        Map<String,Object> res = new HashMap<>();
+        Map<String, Object> res = new HashMap<>();
 
         //高亮
         HighlightBuilder highlightBuilder = new HighlightBuilder();
@@ -242,9 +245,9 @@ public class CommunityApplicationTests {
 //            System.out.println(discussPost);
             list.add(discussPost);
         }
-        res.put("list",list);
-        res.put("total",total);
-        if(res.get("list")!= null){
+        res.put("list", list);
+        res.put("total", total);
+        if (res.get("list") != null) {
             for (DiscussPost post : list = (List<DiscussPost>) res.get("list")) {
                 System.out.println(post);
             }
